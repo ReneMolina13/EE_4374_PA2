@@ -30,9 +30,9 @@ void *catalanThread1(void *param)
 {
 	// Get start and ending number from parameter
 	int thread_num_start_end[3] = (int[]) param;
-	int thread_num = (int[]) thread_num_start_end[THREAD_NUM];
-	int start_num = (int[]) thread_num_start_end[THREAD_START];
-	int end_num = (int[]) thread_num_start_end[THREAD_END];
+	int thread_num = thread_num_start_end[THREAD_NUM];
+	int start_num = thread_num_start_end[THREAD_START];
+	int end_num = thread_num_start_end[THREAD_END];
 	
 	// Open file for this thread
 	FILE *catalan_file;

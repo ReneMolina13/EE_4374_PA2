@@ -26,10 +26,10 @@ pthread_attr_t attr;
 pthread_t *tid;
 
 
-void *catalanThread1(void *param)
+void *catalanThread(void *param)
 {
 	// Get start and ending number from parameter
-	int thread_num_start_end[3] = (int *) param;
+	int thread_num_start_end[] = (int[]) param;
 	int thread_num = thread_num_start_end[THREAD_NUM];
 	int start_num = thread_num_start_end[THREAD_START];
 	int end_num = thread_num_start_end[THREAD_END];

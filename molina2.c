@@ -110,7 +110,7 @@ int main(int argc, char **argv)
 	*(factorials + 1) = 1;
 	for (int i = 2; i < num_factorials; i++) {
 		*(factorials + i) = *(factorials + i-1) * i;
-		printf("index = %d, value = %lld", i, *(factorials + i));
+		printf("index = %d, value = %lld\n", i, *(factorials + i));
 	}
 	
 	// Divide up the work for the threads

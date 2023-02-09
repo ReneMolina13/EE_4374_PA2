@@ -51,7 +51,7 @@ void *catalanThread1(void *param)
 		break;
 	default:
 		printf("Invalid thread number\n");
-		return -1;
+		return (void *) -1;
 	}
 	
 	// Calculate and print Catalan numbers for this thread
@@ -150,7 +150,7 @@ int main(int argc, char **argv)
 		
 	default:
 		printf("Incorrect number of threads\n");
-		return (void *) -1;
+		return -1;
 	}
 	
 	// Wait for all threads to terminate

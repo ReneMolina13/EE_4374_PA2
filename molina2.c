@@ -65,6 +65,10 @@ void *catalanThread(void *param)
 		num1 = *(factorials + (2*n));
 		num2 = *(factorials + (n+1));
 		num3 = *(factorials + n);
+		
+		/* TESTING */
+		printf("\nnum1: %Lf, num2: %lld, num3: %lld", num1, num2, num3);
+		
 		catalan = (long long int) num1 / (num2 * num3);
 		fprintf(catalan_file, "n = %d, c(n) = %lld\n", n, catalan);
 	}

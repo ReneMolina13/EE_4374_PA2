@@ -108,8 +108,10 @@ int main(int argc, char **argv)
 	// Calculate all factorial values needed
 	*factorials = 1;
 	*(factorials + 1) = 1;
-	for (int i = 2; i < num_factorials; i++)
+	for (int i = 2; i < num_factorials; i++) {
 		*(factorials + i) = *(factorials + i-1) * i;
+		printf("index = %d, value = %lld", i, *(factorials + i));
+	}
 	
 	// Divide up the work for the threads
 	int divided_work = num_catalan / num_threads;

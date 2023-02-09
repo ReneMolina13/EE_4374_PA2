@@ -29,7 +29,7 @@ pthread_t *tid;
 void *catalanThread1(void *param)
 {
 	// Get start and ending number from parameter
-	int[] thread_num_start_end = (int[]) param;
+	int thread_num_start_end[3] = (int[]) param;
 	int thread_num = (int[]) thread_num_start_end[THREAD_NUM];
 	int start_num = (int[]) thread_num_start_end[THREAD_START];
 	int end_num = (int[]) thread_num_start_end[THREAD_END];
@@ -114,7 +114,7 @@ int main(int argc, char **argv)
 	// Divide up the work for the threads
 	int divided_work = num_catalan / num_threads;
 	int remaining_work = num_catalan % num_threads;
-	int[] thread_num_start_end = {0, 0, 0};
+	int thread_num_start_end[3] = {0, 0, 0};
 	int work_assigned = 0;
 	
 	// Create threads

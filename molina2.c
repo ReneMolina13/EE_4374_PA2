@@ -29,9 +29,10 @@ pthread_t *tid;
 void *catalanThread1(void *param)
 {
 	// Get start and ending number from parameter
-	int thread_num = (int[]) param[THREAD_NUM];
-	int start_num = (int[]) param[THREAD_START];
-	int end_num = (int[]) param[THREAD_END];
+	int[] thread_num_start_end = (int[]) param;
+	int thread_num = (int[]) thread_num_start_end[THREAD_NUM];
+	int start_num = (int[]) thread_num_start_end[THREAD_START];
+	int end_num = (int[]) thread_num_start_end[THREAD_END];
 	
 	// Open file for this thread
 	FILE *catalan_file;
@@ -101,7 +102,7 @@ int main(int argc, char **argv)
 	tid = malloc(num_threads * sizeof(pthread_t));
 	
 	// Create an array of all factorials needed
-	int num_factorials = (2 * num_catalan) + 1
+	int num_factorials = (2 * num_catalan) + 1;
 	factorials = malloc(num_factorials * sizeof(long long int));
 	
 	// Calculate all factorial values needed
@@ -149,7 +150,7 @@ int main(int argc, char **argv)
 		
 	default:
 		printf("Incorrect number of threads\n");
-		return -1;
+		return (void *) -1;
 	}
 	
 	// Wait for all threads to terminate

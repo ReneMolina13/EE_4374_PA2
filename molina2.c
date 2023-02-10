@@ -63,7 +63,7 @@ void *catalanThread(void *param)
 		num = *(factorials + (2*n));
 		den = (*(factorials + (n+1))) * (*(factorials + n));
 		catalan = num / den;
-		catalan += (unsigned long long int) ((num % den) / ((long double) den));
+		//catalan += (unsigned long long int) ((num % den) / ((long double) den));
 		fprintf(catalan_file, "n = %d, c(n) = %lld\n", n, catalan);
 	}
 	

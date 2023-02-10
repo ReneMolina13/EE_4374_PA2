@@ -134,7 +134,7 @@ int main(int argc, char **argv)
 	// Divide up the work for the threads
 	int divided_work = num_catalan / num_threads;
 	int remaining_work = num_catalan % num_threads;
-	int thread_num_start_end[3] = {0, 0, 0};
+	int thread_num_start_end[3];
 	int work_assigned = 0;
 	
 	// Create threads

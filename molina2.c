@@ -26,14 +26,19 @@ pthread_attr_t attr;
 pthread_t *tid;
 
 
-void *catalanThread(void *param)
+void *catalanThread(void *param1, void *param2, void *param3)
 {
+	/*
 	// Get start and ending number from parameter
 	int *parameter = (int *) param;
 	int thread_num = parameter[THREAD_NUM];
 	int start_num = parameter[THREAD_START];
 	int end_num = parameter[THREAD_END];
+	*/
 	
+	int thread_num = (int) param1;
+	int start_num = (int) param2;
+	int end_num = (int) param3;
 	
 	
 	
@@ -134,38 +139,73 @@ int main(int argc, char **argv)
 	// Divide up the work for the threads
 	int divided_work = num_catalan / num_threads;
 	int remaining_work = num_catalan % num_threads;
-	int thread_num_start_end[3];
+	// int thread_num_start_end[3];
 	int work_assigned = 0;
+	
+	int thread_num = 0, thread_start = 0, thread_end = 0;
 	
 	// Create threads
 	switch (num_threads) {
 	case 4:
+		/*
 		thread_num_start_end[THREAD_NUM] = 4;
 		thread_num_start_end[THREAD_START] = work_assigned + 1;
 		work_assigned += divided_work;
 		thread_num_start_end[THREAD_END] = work_assigned;
 		pthread_create(tid++, &attr, catalanThread, (void *) thread_num_start_end);
+		*/
+		
+		thread_num = 4;
+		thread_start = work_assigned + 1;
+		work_assigned += divided_work;
+		thread_end = work_assigned;
+		pthread_create(tid++, &attr, catalanThread, (void *) thread_num, (void *) thread_start, (void *) thread_end);
 		
 	case 3:
+		/*
 		thread_num_start_end[THREAD_NUM] = 3;
 		thread_num_start_end[THREAD_START] = work_assigned + 1;
 		work_assigned += divided_work;
 		thread_num_start_end[THREAD_END] = work_assigned;
 		pthread_create(tid++, &attr, catalanThread, (void *) thread_num_start_end);
+		*/
+		
+		thread_num = 3;
+		thread_start = work_assigned + 1;
+		work_assigned += divided_work;
+		thread_end = work_assigned;
+		pthread_create(tid++, &attr, catalanThread, (void *) thread_num, (void *) thread_start, (void *) thread_end);
 		
 	case 2:
+		/*
 		thread_num_start_end[THREAD_NUM] = 2;
 		thread_num_start_end[THREAD_START] = work_assigned + 1;
 		work_assigned += divided_work;
 		thread_num_start_end[THREAD_END] = work_assigned;
 		pthread_create(tid++, &attr, catalanThread, (void *) thread_num_start_end);
+		*/
+		
+		thread_num = 2;
+		thread_start = work_assigned + 1;
+		work_assigned += divided_work;
+		thread_end = work_assigned;
+		pthread_create(tid++, &attr, catalanThread, (void *) thread_num, (void *) thread_start, (void *) thread_end);
 	
 	case 1:
+		/*
 		thread_num_start_end[THREAD_NUM] = 1;
 		thread_num_start_end[THREAD_START] = work_assigned + 1;
 		work_assigned += divided_work + remaining_work;
 		thread_num_start_end[THREAD_END] = work_assigned;
 		pthread_create(tid, &attr, catalanThread, (void *) thread_num_start_end);
+		*/
+		
+		thread_num = 1;
+		thread_start = work_assigned + 1;
+		work_assigned += divided_work;
+		thread_end = work_assigned;
+		pthread_create(tid, &attr, catalanThread, (void *) thread_num, (void *) thread_start, (void *) thread_end);
+		
 		break;
 		
 	default:

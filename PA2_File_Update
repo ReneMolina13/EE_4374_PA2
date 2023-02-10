@@ -2,5 +2,5 @@
 rm catalan* molina2
 git pull origin
 gcc molina2.c -o molina2 -lpthreads
-./molina2 20 1
+./molina2 10 2
 cat catalan1.dat

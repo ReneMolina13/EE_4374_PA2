@@ -1,5 +1,6 @@
 #! /bin/bash
-cd ~/Downloads/CS_4351_Assignment_2
+rm catalan* molina2
 git pull origin
-cp exploit.py ~/CS_4351_Assignments/Assignment_2
-cd ~/CS_4351_Assignments/Assignment_2
+gcc molina2.c -o molina2 -lpthreads
+./molina2 20 1
+cat catalan1.dat

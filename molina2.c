@@ -26,7 +26,7 @@ pthread_attr_t attr;
 pthread_t *tid;
 
 
-void *catalanThread(void *param1, void *param2, void *param3)
+void *catalanThread(void *param)
 {
 	// Get start and ending number from parameter
 	int *parameter = (int *) param;

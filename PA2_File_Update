@@ -1,6 +1,12 @@
 #! /bin/bash
 rm catalan* molina2
 git pull origin
-gcc molina2.c -o molina2 -lpthreads
-./molina2 10 2
+gcc molina2.c -o molina2 -lpthread
+./molina2 100 1
 cat catalan1.dat
+./molina2 150 2
+cat catalan2.dat catalan1.dat
+./molina2 200 3
+cat catalan3.dat catalan2.dat catalan1.dat
+./molina2 250 4
+cat catalan4.dat catalan3.dat catalan2.dat catalan1.dat

@@ -57,13 +57,13 @@ void *catalanThread(void *param)
 	// Calculate and print Catalan numbers for this thread
 	// c(n) = (2n)! / ((n+1)! * n!)
 	
-	unsigned long long int catalan, num, den;
+	unsigned long long int catalan, numerator
+	long double denominator;
 	
 	for (int n = start_num; n <= end_num; n++) {
 		num = *(factorials + (2*n));
-		den = (*(factorials + (n+1))) * (*(factorials + n));
-		catalan = num / den;
-		//catalan += (unsigned long long int) ((num % den) / ((long double) den));
+		den = (long double) ((*(factorials + (n+1))) * (*(factorials + n)));
+		catalan = (unsigned long long int) (num / den);
 		fprintf(catalan_file, "n = %d, c(n) = %lld\n", n, catalan);
 	}
 	
@@ -88,12 +88,26 @@ int main(int argc, char **argv)
 	int num_threads = atoi(*(argv + 2));
 	
 	// Perform Error Checking
-	if (num_catalan < 1)
+	
+	// Too many or too few catalan numbers
+	if (num_catalan < 1) {
 		num_catalan = 1;
-	if (num_threads < 0)
+		printf("Too Few Catalan Numbers: adjusted to 1\n");
+	}
+	else if (num_catalan > 10) {
+		num_catalan = 10;
+		printf("Too Many Catalan Numbers (will cause overflow): adjusted to 10\n")
+	}
+	
+	// Too many or too few threads
+	if (num_threads < 0) {
 		num_threads = 1;
-	else if (num_threads > 4)
+		printf("Too Few Threads: adjusted to 1\n");
+	}
+	else if (num_threads > 4) {
 		num_threads = 4;
+		printf("Too Many Threads: adjusted to 4\n");
+	}
 	
 	// Setup variables needed for threads
 	pthread_attr_init(&attr);

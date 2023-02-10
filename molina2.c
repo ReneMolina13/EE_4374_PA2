@@ -61,9 +61,9 @@ void *catalanThread(void *param)
 	long double denominator;
 	
 	for (int n = start_num; n <= end_num; n++) {
-		num = *(factorials + (2*n));
-		den = (long double) ((*(factorials + (n+1))) * (*(factorials + n)));
-		catalan = (unsigned long long int) (num / den);
+		numerator = *(factorials + (2*n));
+		denominator = (long double) ((*(factorials + (n+1))) * (*(factorials + n)));
+		catalan = (unsigned long long int) (numerator / denominator);
 		fprintf(catalan_file, "n = %d, c(n) = %lld\n", n, catalan);
 	}
 	
@@ -96,7 +96,7 @@ int main(int argc, char **argv)
 	}
 	else if (num_catalan > 10) {
 		num_catalan = 10;
-		printf("Too Many Catalan Numbers (will cause overflow): adjusted to 10\n")
+		printf("Too Many Catalan Numbers (will cause overflow): adjusted to 10\n");
 	}
 	
 	// Too many or too few threads

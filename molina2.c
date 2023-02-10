@@ -185,6 +185,6 @@ int main(int argc, char **argv)
 	
 	// Tell user where to find results and terminate
 	printf("Catalan numbers can be found in files catalan1.dat - catalan%i.dat\n", num_threads);
-	printf("Total Execution time: %.0Lf ms\n");
+	printf("Total Execution time: %.0Lf ms\n", duration_ms);
 	return 0;
 }

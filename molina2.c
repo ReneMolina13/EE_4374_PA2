@@ -137,7 +137,7 @@ int main(int argc, char **argv)
 	// Create threads
 	switch (num_threads) {
 	case 4:
-		int thread4_start_end[3];
+		int thread4_start_end[3] = {0, 0, 0};
 		thread4_start_end[THREAD_NUM] = 4;
 		thread4_start_end[THREAD_START] = work_assigned + 1;
 		work_assigned += divided_work;
@@ -145,7 +145,7 @@ int main(int argc, char **argv)
 		pthread_create(tid++, &attr, catalanThread, (void *) thread4_start_end);
 		
 	case 3:
-		int thread3_start_end[3];
+		int thread3_start_end[3] = {0, 0, 0};
 		thread3_start_end[THREAD_NUM] = 3;
 		thread3_start_end[THREAD_START] = work_assigned + 1;
 		work_assigned += divided_work;
@@ -153,7 +153,7 @@ int main(int argc, char **argv)
 		pthread_create(tid++, &attr, catalanThread, (void *) thread3_start_end);
 		
 	case 2:
-		int thread2_start_end[3];
+		int thread2_start_end[3] = {0, 0, 0};
 		thread2_start_end[THREAD_NUM] = 2;
 		thread2_start_end[THREAD_START] = work_assigned + 1;
 		work_assigned += divided_work;
@@ -161,7 +161,7 @@ int main(int argc, char **argv)
 		pthread_create(tid++, &attr, catalanThread, (void *) thread2_start_end);
 		
 	case 1:
-		int thread1_start_end[3];
+		int thread1_start_end[3] = {0, 0, 0};
 		thread1_start_end[THREAD_NUM] = 1;
 		thread1_start_end[THREAD_START] = work_assigned + 1;
 		work_assigned += divided_work + remaining_work;

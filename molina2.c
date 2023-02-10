@@ -181,7 +181,7 @@ int main(int argc, char **argv)
 	
 	// See how much time elapsed
 	end = clock();
-	long double duration_ms = ((long double) (end - start) / CLOCKS_PER_SEC) * 1000;
+	long double duration_ms = (long double) ((end - start) / CLOCKS_PER_SEC) * 1000);
 	
 	// Tell user where to find results and terminate
 	printf("Catalan numbers can be found in files catalan1.dat - catalan%i.dat\n", num_threads);

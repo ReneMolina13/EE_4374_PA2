@@ -98,9 +98,9 @@ int main(int argc, char **argv)
 		num_catalan = 1;
 		printf("Too Few Catalan Numbers: adjusted to 1\n");
 	}
-	else if (num_catalan > 10) {
-		num_catalan = 10;
-		printf("Too Many Catalan Numbers (will cause overflow): adjusted to 10\n");
+	else if (num_catalan > 20) {
+		num_catalan = 20;
+		printf("Too Many Catalan Numbers (will cause overflow): adjusted to 20\n");
 	}
 	
 	// Too many or too few threads

@@ -68,7 +68,7 @@ void *catalanThread(void *param)
 		
 		// c(n) = temp_result / n!
 		catalan = temp_result / factorials[n];
-		fprintf(catalan_file, "n = %d, c(n) = %llf\n", n, catalan);
+		fprintf(catalan_file, "n = %d, c(n) = %Lf.0\n", n, catalan);
 	}
 	
 	// Close file and exit thread

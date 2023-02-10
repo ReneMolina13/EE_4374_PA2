@@ -34,6 +34,14 @@ void *catalanThread(void *param)
 	int start_num = thread_num_start_end[THREAD_START];
 	int end_num = thread_num_start_end[THREAD_END];
 	
+	
+	
+	
+	/* TESTING */
+	printf("Thread %i\n", thread_num);
+	
+	
+	
 	// Open file for this thread
 	FILE *catalan_file;
 	switch (thread_num) {
@@ -136,24 +144,21 @@ int main(int argc, char **argv)
 		thread_num_start_end[THREAD_START] = work_assigned + 1;
 		work_assigned += divided_work;
 		thread_num_start_end[THREAD_END] = work_assigned;
-		pthread_create(tid, &attr, catalanThread, (void *) thread_num_start_end);
-		tid++;
+		pthread_create(tid++, &attr, catalanThread, (void *) thread_num_start_end);
 		
 	case 3:
 		thread_num_start_end[THREAD_NUM] = 3;
 		thread_num_start_end[THREAD_START] = work_assigned + 1;
 		work_assigned += divided_work;
 		thread_num_start_end[THREAD_END] = work_assigned;
-		pthread_create(tid, &attr, catalanThread, (void *) thread_num_start_end);
-		tid++;
+		pthread_create(tid++, &attr, catalanThread, (void *) thread_num_start_end);
 		
 	case 2:
 		thread_num_start_end[THREAD_NUM] = 2;
 		thread_num_start_end[THREAD_START] = work_assigned + 1;
 		work_assigned += divided_work;
 		thread_num_start_end[THREAD_END] = work_assigned;
-		pthread_create(tid, &attr, catalanThread, (void *) thread_num_start_end);
-		tid++;
+		pthread_create(tid++, &attr, catalanThread, (void *) thread_num_start_end);
 	
 	case 1:
 		thread_num_start_end[THREAD_NUM] = 1;

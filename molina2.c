@@ -168,6 +168,7 @@ int main(int argc, char **argv)
 	// Wait for all threads to terminate
 	for (int i = 0; i < num_threads; i++)
 		pthread_join(*(tid - i), NULL);
+	tid -= (num_threads - 1);
 	
 	// Deallocate Memory
 	free(factorials);

@@ -62,7 +62,7 @@ void *catalanThread(void *param)
 		
 		// temp_result = (2n)! / (n+1)!
 		unsigned long long int temp_result = n+2;
-		for (i = n+3; i <= 2n; i++) {
+		for (int i = n+3; i <= 2*n; i++) {
 			temp_result *= i;
 		}
 		

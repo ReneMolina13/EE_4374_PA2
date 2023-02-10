@@ -19,7 +19,7 @@
 
 
 // Holds array of all factorials needed
-long long int *factorials;
+unsigned long long int *factorials;
 // Holds pthread attributes
 pthread_attr_t attr;
 // Holds pointer to threads
@@ -57,15 +57,15 @@ void *catalanThread(void *param)
 	// Calculate and print Catalan numbers for this thread
 	// c(n) = (2n)! / ((n+1)! * n!)
 	
-	long long int catalan;
-	long double num1;
-	long long int num2, num3;
+	unsigned long long int catalan;
+	unsigned long double num1;
+	unsigned long long int num2, num3;
 	
 	for (int n = start_num; n <= end_num; n++) {
 		num1 = *(factorials + (2*n));
 		num2 = *(factorials + (n+1));
 		num3 = *(factorials + n);
-		catalan = (long long int) num1 / (num2 * num3);
+		catalan = (unsigned long long int) num1 / (num2 * num3);
 		fprintf(catalan_file, "n = %d, c(n) = %lld\n", n, catalan);
 	}
 	
@@ -103,7 +103,7 @@ int main(int argc, char **argv)
 	
 	// Create an array of all factorials needed
 	int num_factorials = (2 * num_catalan) + 1;
-	factorials = malloc(num_factorials * sizeof(long long int));
+	factorials = malloc(num_factorials * sizeof(unsigned long long int));
 	
 	// Calculate all factorial values needed
 	*factorials = 1;

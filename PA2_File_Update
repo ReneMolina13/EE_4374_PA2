@@ -1,0 +1,5 @@
+#! /bin/bash
+cd ~/Downloads/CS_4351_Assignment_2
+git pull origin
+cp exploit.py ~/CS_4351_Assignments/Assignment_2
+cd ~/CS_4351_Assignments/Assignment_2

@@ -57,15 +57,13 @@ void *catalanThread(void *param)
 	// Calculate and print Catalan numbers for this thread
 	// c(n) = (2n)! / ((n+1)! * n!)
 	
-	unsigned long long int catalan;
-	unsigned long double num1;
-	unsigned long long int num2, num3;
+	unsigned long long int catalan, num, den;
 	
 	for (int n = start_num; n <= end_num; n++) {
-		num1 = *(factorials + (2*n));
-		num2 = *(factorials + (n+1));
-		num3 = *(factorials + n);
-		catalan = (unsigned long long int) num1 / (num2 * num3);
+		num = *(factorials + (2*n));
+		den = (*(factorials + (n+1))) * (*(factorials + n));
+		catalan = num / den;
+		catalan += (unsigned long long int) ((num % den) / ((long double) den));
 		fprintf(catalan_file, "n = %d, c(n) = %lld\n", n, catalan);
 	}
 	

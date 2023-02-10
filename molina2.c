@@ -10,6 +10,7 @@
 #include <pthread.h>	// pthreads library
 #include <unistd.h>		// UNIX system call library
 #include <signal.h>		// Signal handler library
+#include <time.h>
 
 
 // Indices used to assign work to threads
@@ -79,6 +80,11 @@ void *catalanThread(void *param)
 
 int main(int argc, char **argv)
 {
+	// Keep track of runtime
+	clock_t start, end;
+	start = clock();
+	
+	
 	// Check for correct number of arguments
 	if (argc != 3) {
 		printf("Not enough armuments entered\n");
@@ -98,12 +104,6 @@ int main(int argc, char **argv)
 		num_catalan = 1;
 		printf("Too Few Catalan Numbers: adjusted to 1\n");
 	}
-	/*
-	else if (num_catalan > 20) {
-		num_catalan = 20;
-		printf("Too Many Catalan Numbers (will cause overflow): adjusted to 20\n");
-	}
-	*/
 	
 	// Too many or too few threads
 	if (num_threads < 0) {
@@ -179,7 +179,12 @@ int main(int argc, char **argv)
 	free(factorials);
 	free (tid);
 	
+	// See how much time elapsed
+	end = clock();
+	long double duration_ms = ((long double) (end - start) / CLOCKS_PER_SEC) * 1000;
+	
 	// Tell user where to find results and terminate
 	printf("Catalan numbers can be found in files catalan1.dat - catalan%i.dat\n", num_threads);
+	printf("Total Execution time: %.0Lf ms\n");
 	return 0;
 }

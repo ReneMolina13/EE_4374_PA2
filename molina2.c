@@ -57,7 +57,7 @@ void *catalanThread(void *param)
 	// Calculate and print Catalan numbers for this thread
 	// c(n) = (2n)! / ((n+1)! * n!)
 	
-	unsigned long long int catalan, numerator
+	unsigned long long int catalan, numerator;
 	long double denominator;
 	
 	for (int n = start_num; n <= end_num; n++) {
